@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/AdminLTE}"
+      lang="en">
+<div layout:fragment="content">
+  Dashboard
+</div>
+
+
+<div layout:fragment="userMenu" th:remove="tag">
+  <div layout:include="~{layouts/fragments/userMenu}" th:remove="tag"></div>
+</div>
+
+<div layout:fragment="tasksMenu" th:remove="tag">
+  <div layout:include="~{layouts/fragments/tasksMenu}" th:remove="tag"></div>
+</div>
+
+<div layout:fragment="notificationsMenu" th:remove="tag">
+  <div layout:include="~{layouts/fragments/notificationsMenu}" th:remove="tag"></div>
+</div>
+
+<div layout:fragment="messagesMenu" th:remove="tag">
+  <div layout:include="~{layouts/fragments/messagesMenu}" th:remove="tag"></div>
+</div>
+
+</html>
