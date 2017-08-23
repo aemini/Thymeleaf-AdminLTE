@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div th:attrappend="id=${modalId != null ? modalId : null}" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" th:aria-label="#{general.close}"><span aria-hidden="true">&times;</span></button>
+        <h4 th:if="${modalTitle != null}" th:text="${modalTitle}" class="modal-title"></h4>
+      </div>
+      <div layout:fragment="content" class="modal-body"></div>
+      <div th:if="${hasFooter}" class="modal-footer">
+        <button th:if="${closeButton}" type="button" class="btn btn-default" data-dismiss="modal" th:text="#{general.close}"></button>
+        <button th:if="${saveButton != null}" type="button" class="btn btn-primary" th:text="${saveButton}"></button>
+      </div>
+    </div>
+  </div>
+</div>
+</html>
