@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<li class="treeview">
+  <a href="#">
+    <i class="fa" th:classappend="${menuIcon}"></i> <span th:text="${menuTitle}"></span>
+    <span class="pull-right-container">
+      <i class="fa fa-angle-left pull-right"></i>
+    </span>
+  </a>
+  <ul layout:fragment="items" class="treeview-menu"></ul>
+</li>
+</html>

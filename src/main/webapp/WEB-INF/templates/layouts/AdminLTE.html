@@ -54,7 +54,7 @@
 
   <!-- begin left sidebar -->
   <aside class="main-sidebar">
-    <section class="sidebar">
+    <div class="sidebar">
       <!-- begin user panel -->
       <div class="user-panel">
         <div class="pull-left image">
@@ -80,14 +80,8 @@
       <!-- begin sidebar menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+        <li layout:include="~{/layouts/fragments/submenu}" th:with="menuTitle='Dashboard',menuIcon='fa-dashboard'" th:remove="tag">
+          <ul layout:fragment="items">
             <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
@@ -107,31 +101,15 @@
             <li><a href="#"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
+
+        <li layout:include="~{/layouts/fragments/submenu}" th:with="menuTitle='Multilevel',menuIcon='fa-share'" th:remove="tag">
+          <ul layout:fragment="items">
             <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level One
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
+            <li layout:include="~{/layouts/fragments/submenu}" th:with="menuTitle='Level One',menuIcon='fa-circle-o'" th:remove="tag">
+              <ul layout:fragment="items">
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                <li layout:include="~{/layouts/fragments/submenu}" th:with="menuTitle='Level two',menuIcon='fa-circle-o'" th:remove="tag">
+                  <ul layout:fragment="items">
                     <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
                   </ul>
                 </li>
@@ -143,13 +121,13 @@
         <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
       </ul>
       <!-- end sidebar menu -->
-    </section>
+    </div>
   </aside>
   <!-- end left sidebar -->
 
   <!-- begin content wrapper -->
   <div layout:fragment="contentWrapper" class="content-wrapper">
-    <section layout:fragment="contentHeader" class="content-header"></section>
+    <div layout:fragment="contentHeader" class="content-header"></div>
     <div layout:fragment="content" class="content"></div>
   </div>
   <!-- end content wrapper -->
